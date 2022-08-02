@@ -24,6 +24,20 @@ class HomeViewController: UIViewController, CreateViewModel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        attribute()
+        layout()
+        bind()
+    }
+    
+    deinit {
+        Log.debug("DeInit \(#fileID)")
+    }
+    
+    private func attribute() {
         view.backgroundColor = .darkGray
     }
+    
+    private func layout() {}
+    
+    private func bind() {}
 }

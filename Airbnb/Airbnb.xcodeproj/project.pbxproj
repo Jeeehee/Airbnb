@@ -14,6 +14,7 @@
 		7345F63C2897A5D00000E53F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63B2897A5D00000E53F /* Observable.swift */; };
 		7345F63E2897B3170000E53F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63D2897B3170000E53F /* ViewModel.swift */; };
 		734A408C2878417400BB2831 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 734A408B2878417400BB2831 /* .swiftlint.yml */; };
+		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
 		ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		7345F63B2897A5D00000E53F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7345F63D2897B3170000E53F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		734A408B2878417400BB2831 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				734A4088287840F600BB2831 /* Application */,
-				734A408D2878418500BB2831 /* Home */,
+				73DCFCD728990F0A00544915 /* Presentation */,
 				734A40892878410800BB2831 /* Resources */,
 			);
 			path = Airbnb;
@@ -103,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				734A408E2878418B00BB2831 /* View */,
-				7345F63B2897A5D00000E53F /* Observable.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -115,6 +116,24 @@
 				7345F63D2897B3170000E53F /* ViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		73DCFCD728990F0A00544915 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				73DCFCD828990F2800544915 /* Util */,
+				734A408D2878418500BB2831 /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		73DCFCD828990F2800544915 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7345F63B2897A5D00000E53F /* Observable.swift */,
+				73DCFCD928990F3900544915 /* Log.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		E8D4B2812318D2DE2C5B9E8F /* Pods */ = {
@@ -261,6 +280,7 @@
 			files = (
 				7345F63E2897B3170000E53F /* ViewModel.swift in Sources */,
 				7345F63C2897A5D00000E53F /* Observable.swift in Sources */,
+				73DCFCDA28990F3900544915 /* Log.swift in Sources */,
 				7330526328770544009065CC /* HomeViewController.swift in Sources */,
 				7330525F28770544009065CC /* AppDelegate.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,

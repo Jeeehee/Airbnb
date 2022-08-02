@@ -15,6 +15,7 @@
 		7345F63E2897B3170000E53F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63D2897B3170000E53F /* ViewModel.swift */; };
 		734A408C2878417400BB2831 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 734A408B2878417400BB2831 /* .swiftlint.yml */; };
 		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
+		73DCFCDD2899121A00544915 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCDC2899121A00544915 /* ViewModelProtocol.swift */; };
 		ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		7345F63D2897B3170000E53F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		734A408B2878417400BB2831 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		73DCFCDC2899121A00544915 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		734A408D2878418500BB2831 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				73DCFCDB2899120700544915 /* ViewModel */,
 				734A408E2878418B00BB2831 /* View */,
 			);
 			path = Home;
@@ -113,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				7330526228770544009065CC /* HomeViewController.swift */,
-				7345F63D2897B3170000E53F /* ViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +136,15 @@
 				73DCFCD928990F3900544915 /* Log.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		73DCFCDB2899120700544915 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7345F63D2897B3170000E53F /* ViewModel.swift */,
+				73DCFCDC2899121A00544915 /* ViewModelProtocol.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E8D4B2812318D2DE2C5B9E8F /* Pods */ = {
@@ -282,6 +293,7 @@
 				7345F63C2897A5D00000E53F /* Observable.swift in Sources */,
 				73DCFCDA28990F3900544915 /* Log.swift in Sources */,
 				7330526328770544009065CC /* HomeViewController.swift in Sources */,
+				73DCFCDD2899121A00544915 /* ViewModelProtocol.swift in Sources */,
 				7330525F28770544009065CC /* AppDelegate.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,
 			);

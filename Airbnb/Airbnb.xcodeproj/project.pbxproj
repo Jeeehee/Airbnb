@@ -11,6 +11,8 @@
 		7330526128770544009065CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7330526028770544009065CC /* SceneDelegate.swift */; };
 		7330526328770544009065CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7330526228770544009065CC /* HomeViewController.swift */; };
 		7330526828770546009065CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7330526728770546009065CC /* Assets.xcassets */; };
+		7345F63C2897A5D00000E53F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63B2897A5D00000E53F /* Observable.swift */; };
+		7345F63E2897B3170000E53F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63D2897B3170000E53F /* ViewModel.swift */; };
 		734A408C2878417400BB2831 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 734A408B2878417400BB2831 /* .swiftlint.yml */; };
 		ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,8 @@
 		7330526228770544009065CC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7330526728770546009065CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7330526C28770546009065CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7345F63B2897A5D00000E53F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7345F63D2897B3170000E53F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		734A408B2878417400BB2831 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				734A408E2878418B00BB2831 /* View */,
+				7345F63B2897A5D00000E53F /* Observable.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				7330526228770544009065CC /* HomeViewController.swift */,
+				7345F63D2897B3170000E53F /* ViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7345F63E2897B3170000E53F /* ViewModel.swift in Sources */,
+				7345F63C2897A5D00000E53F /* Observable.swift in Sources */,
 				7330526328770544009065CC /* HomeViewController.swift in Sources */,
 				7330525F28770544009065CC /* AppDelegate.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,

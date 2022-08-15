@@ -15,16 +15,6 @@ protocol InjectViewModel {
 class HomeViewController: UIViewController, InjectViewModel {
     private var viewModel: HomeViewModelProtocol?
     
-    private let searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = Text.searchBarPlaceholder.text
-        searchController.searchBar.clipsToBounds = true
-        searchController.searchBar.searchTextField.font = .init(name: NotoSans.black.name, size: 20)
-        searchController.searchBar.frame = CGRect(x: 0, y: 0, width: 0, height: 1000)
-        searchController.searchBar.searchBarStyle = .minimal
-        return searchController
-    }()
-    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: Text.searchBarPlaceholder.text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.textBlack ?? UIColor.black])
@@ -35,10 +25,10 @@ class HomeViewController: UIViewController, InjectViewModel {
         searchBar.setPositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: .search)
         searchBar.backgroundColor = .white
         
-        searchBar.searchTextField.layer.shadowColor = UIColor.black.cgColor
-        searchBar.searchTextField.layer.shadowOpacity = 0.25
-        searchBar.searchTextField.layer.shadowOffset = CGSize(width: 2, height: 2)
-        searchBar.searchTextField.layer.shadowRadius = 5
+//        searchBar.searchTextField.layer.shadowColor = UIColor.black.cgColor
+//        searchBar.searchTextField.layer.shadowOpacity = 0.25
+//        searchBar.searchTextField.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        searchBar.searchTextField.layer.shadowRadius = 5
         return searchBar
     }()
     
@@ -74,10 +64,6 @@ class HomeViewController: UIViewController, InjectViewModel {
         attribute()
         layout()
         bind()
-        navigationController?.navigationBar.backgroundColor = .darkGray
-        navigationController?.navigationBar.bounds.size = .init(width: 100, height: 100)
-//        navigationController?.navigationBar.setTitleVerticalPositionAdjustment(500, for: .defaultPrompt)
-//        navigationController?.navigationBar.frame.size.height = 300
     }
     
     deinit {
@@ -86,42 +72,35 @@ class HomeViewController: UIViewController, InjectViewModel {
     
     private func attribute() {
         view.backgroundColor = .white
-//        navigationItem.titleView = searchBar
-        let titleView = SearchBarContainerView(customSearchBar: searchBar)
-        titleView.snp.makeConstraints {
-            $0.width.equalTo(100)
-            $0.height.equalTo(1000)
-        }
-        navigationItem.titleView = titleView
+        navigationItem.titleView = searchBar
         
         underLine.backgroundColor = .line
-//        navigationItem.searchController = searchController
     }
     
     private func layout() {
         view.addSubview(label)
-//        view.addSubview(underLine)
-//        view.addSubview(collectionView)
+        view.addSubview(underLine)
+        view.addSubview(collectionView)
         view.addSubview(mapButton)
         
         label.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
         
-//        underLine.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide)
-//            $0.leading.equalToSuperview().offset(20)
-//            $0.trailing.equalToSuperview().offset(-20)
-//            $0.height.equalTo(1)
-//        }
+        underLine.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(1)
+        }
         
-//        collectionView.snp.makeConstraints {
-//            $0.top.equalTo(underLine.snp.bottom).offset(30)
-//            $0.leading.equalToSuperview().offset(20)
-//            $0.trailing.equalToSuperview().offset(-20)
-//            $0.height.equalTo(view.safeAreaLayoutGuide)
-//        }
-//
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(underLine.snp.bottom).offset(30)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(view.safeAreaLayoutGuide)
+        }
+
         mapButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
@@ -147,18 +126,7 @@ extension HomeViewController {
     }
 }
 
-final class CollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestCell.identifier, for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
-        return cell
-    }
-    
-}
-
+// 임시 View
 class SearchBarContainerView: UIView {
     let searchBar: UISearchBar
     init(customSearchBar: UISearchBar) {

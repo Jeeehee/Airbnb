@@ -12,6 +12,10 @@ import Foundation
  */
 
 struct HomeViewModel: HomeViewModelProtocol {
+    var isError: Observable<Bool> = Observable(false)
+    var errorMessage: Observable<String?> = Observable("NoError")
+    var testLabel: Observable<String> = Observable("테스트")
+    
     var input: HomeViewModelInput { self }
     var output: HomeViewModelOutput { self }
     

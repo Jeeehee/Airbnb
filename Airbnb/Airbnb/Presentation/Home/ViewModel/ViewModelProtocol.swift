@@ -9,7 +9,12 @@ import Foundation
 
 protocol HomeViewModelInput {}
 
-protocol HomeViewModelOutput {}
+protocol HomeViewModelOutput {
+    // 옵저버블로 어떤 값을 보낼건지
+    var isError: Observable<Bool> { get }
+    var errorMessage: Observable<String?> { get }
+    var testLabel: Observable<String> { get }
+}
 
 protocol HomeViewModelProtocol: HomeViewModelInput, HomeViewModelOutput {
     var input: HomeViewModelInput { get }

@@ -5,4 +5,11 @@
 //  Created by Jihee hwang on 2022/08/04.
 //
 
-import Foundation
+import UIKit
+
+final class HomeDIContainer {
+    static func makeHomeViewController() -> UIViewController {
+        let viewModel = HomeViewModel()
+        return HomeViewController.creat(with: viewModel)
+    }
+}

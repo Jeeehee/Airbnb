@@ -18,6 +18,7 @@ final class SuggestCell: UICollectionViewCell {
         stackView.alignment = .leading
         stackView.axis = .vertical
         stackView.spacing = 10
+        stackView.backgroundColor = .black
         return stackView
     }()
     

@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum SectionType: Int, CaseIterable {
-    case suggest, city
-}
-
 struct LayoutFactory {
     static func creatLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (index, _) -> NSCollectionLayoutSection? in

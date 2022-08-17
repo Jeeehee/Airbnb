@@ -39,6 +39,10 @@
 		739739AC28A61E0C00213606 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739739AB28A61E0C00213606 /* LoginViewController.swift */; };
 		739739AF28A61E3E00213606 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739739AE28A61E3E00213606 /* WishListViewController.swift */; };
 		739739B128A623E400213606 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739739B028A623E400213606 /* AppDIContainer.swift */; };
+		73CCF09528AB62BB004B8226 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09428AB62BB004B8226 /* SectionType.swift */; };
+		73CCF09728AB670C004B8226 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09628AB670C004B8226 /* ItemType.swift */; };
+		73CCF09928AB84B6004B8226 /* CollectionViewRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */; };
+		73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF0D628AC9175004B8226 /* SearchBarView.swift */; };
 		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
 		73DCFCDD2899121A00544915 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCDC2899121A00544915 /* ViewModelProtocol.swift */; };
 		ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */; };
@@ -82,6 +86,10 @@
 		739739AB28A61E0C00213606 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		739739AE28A61E3E00213606 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		739739B028A623E400213606 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		73CCF09428AB62BB004B8226 /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
+		73CCF09628AB670C004B8226 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRegistration.swift; sourceTree = "<group>"; };
+		73CCF0D628AC9175004B8226 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		73DCFCDC2899121A00544915 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +190,7 @@
 				7389D06528A4D28500BC58A4 /* SuggestCell.swift */,
 				7389D07128A4DACD00BC58A4 /* CityCell.swift */,
 				7389D07A28A4EE8800BC58A4 /* HeaderView.swift */,
+				73CCF0D628AC9175004B8226 /* SearchBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +208,8 @@
 			children = (
 				7389D06D28A4D9A800BC58A4 /* Suggest.swift */,
 				7389D07328A4DAE500BC58A4 /* City.swift */,
+				73CCF09428AB62BB004B8226 /* SectionType.swift */,
+				73CCF09628AB670C004B8226 /* ItemType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -273,6 +284,7 @@
 				7345F63B2897A5D00000E53F /* Observable.swift */,
 				73DCFCD928990F3900544915 /* Log.swift */,
 				7389D07828A4E37E00BC58A4 /* LayoutFactory.swift */,
+				73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -442,12 +454,15 @@
 				7345F63E2897B3170000E53F /* ViewModel.swift in Sources */,
 				739739AF28A61E3E00213606 /* WishListViewController.swift in Sources */,
 				73399DFC289B705500201328 /* HomeDIContainer.swift in Sources */,
+				73CCF09528AB62BB004B8226 /* SectionType.swift in Sources */,
 				7389D07228A4DACD00BC58A4 /* CityCell.swift in Sources */,
+				73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */,
 				7389D06C28A4D6C600BC58A4 /* Font.swift in Sources */,
 				739739AC28A61E0C00213606 /* LoginViewController.swift in Sources */,
 				7345F63C2897A5D00000E53F /* Observable.swift in Sources */,
 				73DCFCDA28990F3900544915 /* Log.swift in Sources */,
 				7330526328770544009065CC /* HomeViewController.swift in Sources */,
+				73CCF09928AB84B6004B8226 /* CollectionViewRegistration.swift in Sources */,
 				7389D08228A4F5D800BC58A4 /* ButtonWithImageAndTitle.swift in Sources */,
 				73DCFCDD2899121A00544915 /* ViewModelProtocol.swift in Sources */,
 				7389D06E28A4D9A800BC58A4 /* Suggest.swift in Sources */,
@@ -456,6 +471,7 @@
 				739739B128A623E400213606 /* AppDIContainer.swift in Sources */,
 				7389D07D28A4F2ED00BC58A4 /* Text.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,
+				73CCF09728AB670C004B8226 /* ItemType.swift in Sources */,
 				7389D07428A4DAE500BC58A4 /* City.swift in Sources */,
 				7389D06628A4D28500BC58A4 /* SuggestCell.swift in Sources */,
 				7389D07928A4E37E00BC58A4 /* LayoutFactory.swift in Sources */,

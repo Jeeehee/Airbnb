@@ -14,31 +14,14 @@ protocol InjectViewModel {
 
 class HomeViewController: UIViewController, InjectViewModel {
     private var viewModel: HomeViewModelProtocol?
-    
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: Text.searchBarPlaceholder.text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.textBlack ?? UIColor.black])
-        searchBar.searchTextField.font = .init(name: NotoSans.regular.name, size: 15)
-        searchBar.searchTextField.layer.masksToBounds = true
-        searchBar.searchTextField.layer.cornerRadius = 20
-        searchBar.searchTextField.leftView?.tintColor = .black
-        searchBar.setPositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: .search)
-        searchBar.backgroundColor = .white
-        
-//        searchBar.searchTextField.layer.shadowColor = UIColor.black.cgColor
-//        searchBar.searchTextField.layer.shadowOpacity = 0.25
-//        searchBar.searchTextField.layer.shadowOffset = CGSize(width: 2, height: 2)
-//        searchBar.searchTextField.layer.shadowRadius = 5
-        return searchBar
-    }()
-    
+    private var dataSource: DataSource?
+
+    private let titleView = SearchBarView()
     private let underLine = UIView()
     
-    private let collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = LayoutFactory.creatLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(SuggestCell.self, forCellWithReuseIdentifier: SuggestCell.identifier)
-        collectionView.register(CityCell.self, forCellWithReuseIdentifier: CityCell.identifier)
         collectionView.backgroundColor = .greyBackground
         return collectionView
     }()
@@ -72,23 +55,31 @@ class HomeViewController: UIViewController, InjectViewModel {
     
     private func attribute() {
         view.backgroundColor = .white
-        navigationItem.titleView = searchBar
-        
+        navigationController?.isNavigationBarHidden = true
         underLine.backgroundColor = .line
+        configureDataSource(in: collectionView)
     }
     
     private func layout() {
+        view.addSubview(titleView)
         view.addSubview(label)
         view.addSubview(underLine)
         view.addSubview(collectionView)
         view.addSubview(mapButton)
+        
+        titleView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(50)
+        }
         
         label.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
         
         underLine.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(titleView.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(1)
@@ -124,29 +115,44 @@ extension HomeViewController {
         viewController.viewModel = viewModel
         return viewController
     }
-}
-
-// 임시 View
-class SearchBarContainerView: UIView {
-    let searchBar: UISearchBar
-    init(customSearchBar: UISearchBar) {
-        searchBar = customSearchBar
-        super.init(frame: CGRect.zero)
-        addSubview(searchBar)
+    
+    private func configureDataSource(in collectionView: UICollectionView) {
+        let registration = CollectionViewRegistration()
+        
+        let suggestCellRegistration = registration.createSuggestCellRegister()
+        let cityCellRegistration = registration.createCityCellRegister()
+        
+        let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
+            // indexPath의 Section을 이용해서 우리가 정의한 SectionType(Enum)을 만든다.
+            guard let section = SectionType(rawValue: indexPath.section) else { return nil }
+            
+            switch section {
+            case .suggest:
+                guard let item = item as? Suggest else { return nil }
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: suggestCellRegistration,
+                    for: indexPath,
+                    item: item)
+                
+            case .city:
+                guard let item = item as? City else { return nil }
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: cityCellRegistration,
+                    for: indexPath,
+                    item: item)
+            }
+        }
+        self.dataSource = dataSource
     }
-
-    override convenience init(frame: CGRect) {
-        self.init(customSearchBar: UISearchBar())
-        self.frame = frame
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        searchBar.frame = bounds
-        backgroundColor = .blue
+    
+    private func snapShot(item: ItemType) {
+        var suggestSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        suggestSnapShot.append([item.suggest])
+        
+        var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        citySnapShot.append([item.city])
+        
+        dataSource?.apply(suggestSnapShot, to: .suggest)
+        dataSource?.apply(citySnapShot, to: .city)
     }
 }

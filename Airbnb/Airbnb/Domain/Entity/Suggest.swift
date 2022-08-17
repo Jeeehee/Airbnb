@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Suggest {
+struct Suggest: Hashable {
     let image: String
     let description: String
 }

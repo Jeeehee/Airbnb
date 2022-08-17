@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct City {
+struct City: Hashable {
     let image: String
     let city: String
     let distance: String

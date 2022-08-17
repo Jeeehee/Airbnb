@@ -73,7 +73,7 @@ final class CityCell: UICollectionViewCell {
 
 // MARK: - 속성 변경
 extension CityCell {
-    func configureSuggestCell(model: City?) {
+    func configureCityCell(model: City?) {
         imageView.image = UIImage(named: "\(String(describing: model?.image))")
         cityLabel.text = model?.city
         distanceLabel.text = model?.distance

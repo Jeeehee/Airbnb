@@ -15,10 +15,8 @@ final class SuggestCell: UICollectionViewCell {
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.alignment = .leading
         stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.backgroundColor = .black
+        stackView.spacing = 5
         return stackView
     }()
     
@@ -26,12 +24,13 @@ final class SuggestCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.medium.name, size: 18)
+        label.font = .init(name: NotoSans.regular.name, size: 17)
         return label
     }()
     
@@ -46,7 +45,7 @@ final class SuggestCell: UICollectionViewCell {
     }
     
     private func layout() {
-        addSubview(stackView)
+        contentView.addSubview(stackView)
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(descriptionLabel)
@@ -54,13 +53,17 @@ final class SuggestCell: UICollectionViewCell {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        imageView.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-50)
+        }
     }
 }
 
 // MARK: - 속성 변경
 extension SuggestCell {
     func configureSuggestCell(model: Suggest?) {
-        imageView.image = UIImage(named: "\(String(describing: model?.image))")
+        imageView.image = model?.image
         descriptionLabel.text = model?.description
     }
 }

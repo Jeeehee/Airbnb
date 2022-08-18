@@ -15,7 +15,8 @@ final class HeaderView: UICollectionReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans.medium.name, size: 23)
+        label.font = UIFont(name: NotoSans.medium.name, size: 22)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -35,5 +36,12 @@ final class HeaderView: UICollectionReusableView {
         titleLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
         }
+    }
+}
+
+// MARK: - 속성 변경
+extension HeaderView {
+    func configureHeaderView(title: String) {
+        titleLabel.text = title
     }
 }

@@ -5,9 +5,12 @@
 //  Created by Jihee hwang on 2022/08/11.
 //
 
-import Foundation
+import UIKit
 
-struct Suggest: Hashable {
-    let image: String
+struct Suggest: Hashable, Identifiable {
+    typealias Identifier = Int
+
+    let id: Identifier
+    let image: UIImage
     let description: String
 }

@@ -12,9 +12,10 @@ protocol InjectViewModel {
     static func creat(with viewModel: HomeViewModelProtocol) -> UIViewController
 }
 
-class HomeViewController: UIViewController, InjectViewModel {
+class HomeViewController: UIViewController {
     private var viewModel: HomeViewModelProtocol?
     private var dataSource: DataSource?
+    private let registration = CollectionViewRegistration()
 
     private let titleView = SearchBarView()
     private let underLine = UIView()
@@ -22,7 +23,6 @@ class HomeViewController: UIViewController, InjectViewModel {
     private lazy var collectionView: UICollectionView = {
         let layout = LayoutFactory.creatLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .greyBackground
         return collectionView
     }()
     
@@ -44,13 +44,25 @@ class HomeViewController: UIViewController, InjectViewModel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
         attribute()
         layout()
-        bind()
     }
     
     deinit {
         Log.debug("DeInit \(#fileID)")
+    }
+    
+    private func bind() {
+        viewModel?.output.sectionTitle.bind { [weak self] text in
+            guard !text.isEmpty else { return }
+            self?.registration.getHeaderText(text: text)
+        }
+        
+        viewModel?.output.items.bind { [weak self] item in
+            self?.snapShot(item: item)
+        }
     }
     
     private func attribute() {
@@ -80,16 +92,14 @@ class HomeViewController: UIViewController, InjectViewModel {
         
         underLine.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
         }
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(underLine.snp.bottom).offset(30)
             $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(view.safeAreaLayoutGuide)
+            $0.trailing.height.equalTo(view.safeAreaLayoutGuide)
         }
 
         mapButton.snp.makeConstraints {
@@ -99,29 +109,25 @@ class HomeViewController: UIViewController, InjectViewModel {
             $0.height.equalTo(45)
         }
     }
-    
-    private func bind() {
-        viewModel?.testLabel.bind { [weak self] _ in
-            guard let `self` = self else { return }
-            self.label.text = "레이블~~~~"
-        }
-    }
 }
 
 // MARK: - ViewModel 생성 및 주입
-extension HomeViewController {
+extension HomeViewController: InjectViewModel {
     static func creat(with viewModel: HomeViewModelProtocol) -> UIViewController {
         let viewController = HomeViewController()
         viewController.viewModel = viewModel
         return viewController
     }
-    
+}
+
+// MARK: - DiffableDataSource 설정
+extension HomeViewController {
     private func configureDataSource(in collectionView: UICollectionView) {
-        let registration = CollectionViewRegistration()
-        
+        // Cell Provider에 사용할 셀 등록
+        let headerRegidtration = registration.creatSectionHeaderRegister()
         let suggestCellRegistration = registration.createSuggestCellRegister()
         let cityCellRegistration = registration.createCityCellRegister()
-        
+
         let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
             // indexPath의 Section을 이용해서 우리가 정의한 SectionType(Enum)을 만든다.
             guard let section = SectionType(rawValue: indexPath.section) else { return nil }
@@ -142,16 +148,23 @@ extension HomeViewController {
                     item: item)
             }
         }
+        
+        dataSource?.supplementaryViewProvider = { collectionView, _, indexPath in
+              collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegidtration, for: indexPath
+              )
+        }
+        
         self.dataSource = dataSource
     }
-    
+
     private func snapShot(item: ItemType) {
         var suggestSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
-        suggestSnapShot.append([item.suggest])
-        
+        suggestSnapShot.append(item.suggest)
+
         var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
-        citySnapShot.append([item.city])
-        
+        citySnapShot.append(item.city)
+
         dataSource?.apply(suggestSnapShot, to: .suggest)
         dataSource?.apply(citySnapShot, to: .city)
     }

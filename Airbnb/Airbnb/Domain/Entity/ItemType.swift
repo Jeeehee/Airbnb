@@ -8,6 +8,6 @@
 import Foundation
 
 struct ItemType: Hashable {
-    let suggest: Suggest
-    let city: City
+    let suggest: [Suggest]
+    let city: [City]
 }

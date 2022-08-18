@@ -16,7 +16,8 @@ final class CityCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 7
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
@@ -30,13 +31,13 @@ final class CityCell: UICollectionViewCell {
     
     private let cityLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.medium.name, size: 18)
+        label.font = .init(name: NotoSans.medium.name, size: 17)
         return label
     }()
     
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.light.name, size: 17)
+        label.font = .init(name: NotoSans.light.name, size: 16)
         label.textColor = .lightGray
         return label
     }()
@@ -52,20 +53,20 @@ final class CityCell: UICollectionViewCell {
     }
     
     private func layout() {
-        addSubview(imageView)
-        addSubview(stackView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(stackView)
         
         stackView.addArrangedSubview(cityLabel)
         stackView.addArrangedSubview(distanceLabel)
         
         imageView.snp.makeConstraints {
-            $0.top.bottom.leading.equalToSuperview()
-            $0.width.equalTo(self.snp.height)
+            $0.top.leading.equalTo(contentView)
+            $0.width.height.equalTo(contentView.snp.height)
         }
         
         stackView.snp.makeConstraints {
             $0.centerY.equalTo(imageView)
-            $0.leading.equalTo(imageView.snp.trailing).offset(10)
+            $0.leading.equalTo(imageView.snp.trailing).offset(15)
             $0.trailing.equalToSuperview()
         }
     }
@@ -74,7 +75,7 @@ final class CityCell: UICollectionViewCell {
 // MARK: - 속성 변경
 extension CityCell {
     func configureCityCell(model: City?) {
-        imageView.image = UIImage(named: "\(String(describing: model?.image))")
+        imageView.image = model?.image
         cityLabel.text = model?.city
         distanceLabel.text = model?.distance
     }

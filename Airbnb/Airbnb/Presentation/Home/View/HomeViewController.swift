@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     private var dataSource: DataSource?
     private let registration = CollectionViewRegistration()
 
-    private let titleView = SearchBarView()
+    private let searchView = SearchBarView()
     private let underLine = UIView()
     
     private lazy var collectionView: UICollectionView = {
@@ -37,61 +37,43 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    private let label: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bind()
+        configureDataSource(in: collectionView)
+        addActionOfButton()
+        
         attribute()
         layout()
+        bind()
     }
     
     deinit {
         Log.debug("DeInit \(#fileID)")
     }
     
-    private func bind() {
-        viewModel?.output.sectionTitle.bind { [weak self] text in
-            guard !text.isEmpty else { return }
-            self?.registration.getHeaderText(text: text)
-        }
-        
-        viewModel?.output.items.bind { [weak self] item in
-            self?.snapShot(item: item)
-        }
-    }
-    
     private func attribute() {
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         underLine.backgroundColor = .line
-        configureDataSource(in: collectionView)
+        searchView.searchBardelegate = self
     }
     
     private func layout() {
-        view.addSubview(titleView)
-        view.addSubview(label)
+        view.addSubview(searchView)
         view.addSubview(underLine)
         view.addSubview(collectionView)
         view.addSubview(mapButton)
         
-        titleView.snp.makeConstraints {
+        searchView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(50)
         }
         
-        label.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        
         underLine.snp.makeConstraints {
-            $0.top.equalTo(titleView.snp.bottom).offset(20)
+            $0.top.equalTo(searchView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
         }
@@ -108,6 +90,24 @@ class HomeViewController: UIViewController {
             $0.width.equalTo(110)
             $0.height.equalTo(45)
         }
+    }
+    
+    private func bind() {
+        viewModel?.output.sectionTitle.bind { [weak self] text in
+            guard !text.isEmpty else { return }
+            self?.registration.getHeaderText(text: text)
+        }
+        
+        viewModel?.output.items.bind { [weak self] item in
+            self?.snapShot(item: item)
+        }
+    }
+    
+    private func addActionOfButton() {
+        mapButton.addAction(.init(handler: { _ in
+            let nextVieController = MapViewController()
+            self.navigationController?.pushViewController(nextVieController, animated: true)
+        }), for: .touchUpInside)
     }
 }
 
@@ -131,7 +131,7 @@ extension HomeViewController {
         let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
             // indexPath의 Section을 이용해서 우리가 정의한 SectionType(Enum)을 만든다.
             guard let section = SectionType(rawValue: indexPath.section) else { return nil }
-            
+
             switch section {
             case .suggest:
                 guard let item = item as? Suggest else { return nil }
@@ -139,7 +139,7 @@ extension HomeViewController {
                     using: suggestCellRegistration,
                     for: indexPath,
                     item: item)
-                
+
             case .city:
                 guard let item = item as? City else { return nil }
                 return collectionView.dequeueConfiguredReusableCell(
@@ -148,11 +148,10 @@ extension HomeViewController {
                     item: item)
             }
         }
-        
+
         dataSource?.supplementaryViewProvider = { collectionView, _, indexPath in
               collectionView.dequeueConfiguredReusableSupplementary(
-                using: headerRegidtration, for: indexPath
-              )
+                using: headerRegidtration, for: indexPath)
         }
         
         self.dataSource = dataSource
@@ -167,5 +166,14 @@ extension HomeViewController {
 
         dataSource?.apply(suggestSnapShot, to: .suggest)
         dataSource?.apply(citySnapShot, to: .city)
+    }
+}
+
+extension HomeViewController: SearchBarDelegate {
+    func didBeginEditing(isStartEditing: Bool) {
+        if isStartEditing {
+            let nextVieController = SearchBarViewController()
+            self.navigationController?.pushViewController(nextVieController, animated: true)
+        }
     }
 }

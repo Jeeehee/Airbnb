@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-class SearchBarView: UIView {
+final class SearchBarView: UIView {
+    var searchBardelegate: SearchBarDelegate?
+    
     private lazy var searchBar: UISearchBar = {
         let image = setSearchBarBackground(color: .white, size: CGSize(width: 10, height: 100))
         let searchBar = UISearchBar()
@@ -33,6 +35,8 @@ class SearchBarView: UIView {
     }
     
     private func attribute() {
+        searchBar.delegate = self
+        
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.18
         layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -53,5 +57,12 @@ class SearchBarView: UIView {
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+extension SearchBarView: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBardelegate?.didBeginEditing(isStartEditing: true)
     }
 }

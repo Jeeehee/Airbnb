@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ButtonWithImageAndTitle: UIButton {
-    
+final class ButtonWithImageAndTitle: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         attribute()

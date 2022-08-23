@@ -14,9 +14,7 @@ protocol InjectViewModel {
 
 class HomeViewController: UIViewController {
     private var viewModel: HomeViewModelProtocol?
-    private var dataSource: DataSource?
-    private let registration = CollectionViewRegistration()
-
+    private let diffableDataSourceManager = DiffableDataSourceManager()
     private let searchView = SearchBarView()
     private let underLine = UIView()
     
@@ -40,7 +38,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDataSource(in: collectionView)
+        diffableDataSourceManager.configureDataSource(in: collectionView)
         addActionOfButton()
         
         attribute()
@@ -95,11 +93,11 @@ class HomeViewController: UIViewController {
     private func bind() {
         viewModel?.output.sectionTitle.bind { [weak self] text in
             guard !text.isEmpty else { return }
-            self?.registration.getHeaderText(text: text)
+            self?.diffableDataSourceManager.getSectionTitle(text: text)
         }
         
         viewModel?.output.items.bind { [weak self] item in
-            self?.snapShot(item: item)
+            self?.diffableDataSourceManager.snapShot(item: item)
         }
     }
     
@@ -117,55 +115,6 @@ extension HomeViewController: InjectViewModel {
         let viewController = HomeViewController()
         viewController.viewModel = viewModel
         return viewController
-    }
-}
-
-// MARK: - DiffableDataSource 설정
-extension HomeViewController {
-    private func configureDataSource(in collectionView: UICollectionView) {
-        // Cell Provider에 사용할 셀 등록
-        let headerRegidtration = registration.creatSectionHeaderRegister()
-        let suggestCellRegistration = registration.createSuggestCellRegister()
-        let cityCellRegistration = registration.createCityCellRegister()
-
-        let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
-            // indexPath의 Section을 이용해서 우리가 정의한 SectionType(Enum)을 만든다.
-            guard let section = SectionType(rawValue: indexPath.section) else { return nil }
-
-            switch section {
-            case .suggest:
-                guard let item = item as? Suggest else { return nil }
-                return collectionView.dequeueConfiguredReusableCell(
-                    using: suggestCellRegistration,
-                    for: indexPath,
-                    item: item)
-
-            case .city:
-                guard let item = item as? City else { return nil }
-                return collectionView.dequeueConfiguredReusableCell(
-                    using: cityCellRegistration,
-                    for: indexPath,
-                    item: item)
-            }
-        }
-
-        dataSource?.supplementaryViewProvider = { collectionView, _, indexPath in
-              collectionView.dequeueConfiguredReusableSupplementary(
-                using: headerRegidtration, for: indexPath)
-        }
-        
-        self.dataSource = dataSource
-    }
-
-    private func snapShot(item: ItemType) {
-        var suggestSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
-        suggestSnapShot.append(item.suggest)
-
-        var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
-        citySnapShot.append(item.city)
-
-        dataSource?.apply(suggestSnapShot, to: .suggest)
-        dataSource?.apply(citySnapShot, to: .city)
     }
 }
 

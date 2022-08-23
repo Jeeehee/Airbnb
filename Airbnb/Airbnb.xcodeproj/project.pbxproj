@@ -29,6 +29,7 @@
 		7389D07B28A4EE8800BC58A4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D07A28A4EE8800BC58A4 /* HeaderView.swift */; };
 		7389D07D28A4F2ED00BC58A4 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D07C28A4F2ED00BC58A4 /* Text.swift */; };
 		7389D08228A4F5D800BC58A4 /* ButtonWithImageAndTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D08128A4F5D800BC58A4 /* ButtonWithImageAndTitle.swift */; };
+		7390CF0B28B498F500D8F2EF /* DiffableDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390CF0A28B498F500D8F2EF /* DiffableDataSourceManager.swift */; };
 		7397399828A6184800213606 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7397399528A6184300213606 /* NotoSansKR-Bold.otf */; };
 		7397399928A6184800213606 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7397399628A6184300213606 /* NotoSansKR-Medium.otf */; };
 		7397399A28A6184800213606 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7397399728A6184300213606 /* NotoSansKR-Regular.otf */; };
@@ -79,6 +80,7 @@
 		7389D07A28A4EE8800BC58A4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7389D07C28A4F2ED00BC58A4 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		7389D08128A4F5D800BC58A4 /* ButtonWithImageAndTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImageAndTitle.swift; sourceTree = "<group>"; };
+		7390CF0A28B498F500D8F2EF /* DiffableDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceManager.swift; sourceTree = "<group>"; };
 		7397398828A6169C00213606 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7397399328A6184300213606 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		7397399428A6184300213606 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				73DCFCD928990F3900544915 /* Log.swift */,
 				7389D07828A4E37E00BC58A4 /* LayoutFactory.swift */,
 				73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */,
+				7390CF0A28B498F500D8F2EF /* DiffableDataSourceManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				739739B128A623E400213606 /* AppDIContainer.swift in Sources */,
 				7389D07D28A4F2ED00BC58A4 /* Text.swift in Sources */,
 				737B13AB28AF273F00097DCE /* MapViewController.swift in Sources */,
+				7390CF0B28B498F500D8F2EF /* DiffableDataSourceManager.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,
 				73CCF09728AB670C004B8226 /* ItemType.swift in Sources */,
 				7389D07428A4DAE500BC58A4 /* City.swift in Sources */,

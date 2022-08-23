@@ -7,8 +7,6 @@
 
 import UIKit
 
-typealias DataSource = UICollectionViewDiffableDataSource<SectionType, AnyHashable>
-
 final class CollectionViewRegistration {
     // <어떤 셀에, 어떤데이터를> 넣을거니
     private var headerText = [String]()
@@ -31,7 +29,7 @@ final class CollectionViewRegistration {
         }
     }
     
-    func getHeaderText(text: [String]) {
+    func getSectionTitle(text: [String]) {
         headerText = text
     }
 }

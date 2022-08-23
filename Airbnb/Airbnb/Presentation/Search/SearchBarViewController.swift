@@ -13,11 +13,19 @@ class SearchBarViewController: UIViewController {
     private let searchView = SearchBarView()
     private let underLine = UIView()
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = LayoutFactory.creatLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .black
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         attribute()
         layout()
+        bind()
     }
     
     private func attribute() {
@@ -29,6 +37,7 @@ class SearchBarViewController: UIViewController {
         view.addSubview(titleView)
         view.addSubview(searchView)
         view.addSubview(underLine)
+        view.addSubview(collectionView)
         
         titleView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -48,5 +57,15 @@ class SearchBarViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(1)
         }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(underLine.snp.bottom).offset(30)
+            $0.leading.trailing.equalTo(underLine)
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    private func bind() {
+        
     }
 }

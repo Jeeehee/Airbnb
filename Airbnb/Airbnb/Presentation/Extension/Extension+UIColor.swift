@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    static let greyBackground = UIColor(named: "greyBackground")
+    static let grayBackground = UIColor(named: "grayBackground")
     static let inButton = UIColor(named: "inButton")
     static let line = UIColor(named: "line")
     static let mapButton = UIColor(named: "mapButton")

@@ -18,8 +18,10 @@ final class SearchBarView: UIView {
         searchBar.setSearchFieldBackgroundImage(image, for: .normal)
         searchBar.searchTextField.font = .init(name: NotoSans.regular.name, size: 15)
         searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.tintColor = .black
         searchBar.layer.masksToBounds = true
         searchBar.layer.cornerRadius = 25
+
         return searchBar
     }()
     
@@ -62,7 +64,7 @@ final class SearchBarView: UIView {
 
 extension SearchBarView: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
+        searchBar.becomeFirstResponder()
         searchBardelegate?.didBeginEditing(isStartEditing: true)
     }
 }

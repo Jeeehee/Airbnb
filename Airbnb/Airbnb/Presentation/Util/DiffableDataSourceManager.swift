@@ -15,7 +15,10 @@ final class DiffableDataSourceManager {
     
     func configureDataSource(in collectionView: UICollectionView) {
         // Cell Provider에 사용할 셀 등록
-        let headerRegistration = registration.creatSectionHeaderRegister()
+        guard let headerFont = UIFont.init(name: NotoSans.medium.name, size: 22) else {
+            UIFont.systemFont(ofSize: 22, weight: .medium); return
+        }
+        let headerRegistration = registration.creatSectionHeaderRegister(font: headerFont)
         let suggestCellRegistration = registration.createSuggestCellRegister()
         let cityCellRegistration = registration.createCityCellRegister()
 
@@ -47,15 +50,46 @@ final class DiffableDataSourceManager {
         
         self.dataSource = dataSource
     }
+    
+    func configureSerchViewDataSource(in collectionView: UICollectionView) {
+        guard let headerFont = UIFont.init(name: NotoSans.medium.name, size: 17) else {
+            UIFont.systemFont(ofSize: 17, weight: .medium); return
+        }
+        let headerRegistration = registration.creatSectionHeaderRegister(font: headerFont)
+        let cityCellRegistration = registration.createCityCellRegister()
+
+        let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
+            guard let item = item as? City else { return nil }
+            return collectionView.dequeueConfiguredReusableCell(
+                using: cityCellRegistration,
+                for: indexPath,
+                item: item)
+        }
+
+        dataSource?.supplementaryViewProvider = { collectionView, _, indexPath in
+              collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegistration, for: indexPath)
+        }
+        
+        self.dataSource = dataSource
+    }
 
     func snapShot(item: ItemType) {
         var suggestSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
-        suggestSnapShot.append(item.suggest)
+        guard let suggest = item.suggest else { return }
+        suggestSnapShot.append(suggest)
 
         var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
         citySnapShot.append(item.city)
 
         dataSource?.apply(suggestSnapShot, to: .suggest)
+        dataSource?.apply(citySnapShot, to: .city)
+    }
+    
+    func snapShotInSerchView(item: [City]) {
+        var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        citySnapShot.append(item)
+
         dataSource?.apply(citySnapShot, to: .city)
     }
     

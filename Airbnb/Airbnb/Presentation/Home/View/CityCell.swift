@@ -13,14 +13,7 @@ final class CityCell: UICollectionViewCell {
         return "\(self)"
     }
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 7
-        imageView.contentMode = .scaleToFill
-        return imageView
-    }()
-    
+    private let imageView = UIImageView()
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .leading
@@ -31,13 +24,13 @@ final class CityCell: UICollectionViewCell {
     
     private let cityLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.medium.name, size: 17)
+        label.font = .init(name: NotoSans.medium.name, size: 16)
         return label
     }()
     
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.light.name, size: 16)
+        label.font = .init(name: NotoSans.light.name, size: 15)
         label.textColor = .lightGray
         return label
     }()

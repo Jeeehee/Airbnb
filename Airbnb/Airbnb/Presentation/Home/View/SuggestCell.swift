@@ -19,7 +19,7 @@ final class SuggestCell: UICollectionViewCell {
         stackView.spacing = 5
         return stackView
     }()
-    
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -53,7 +53,7 @@ final class SuggestCell: UICollectionViewCell {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
+                
         imageView.snp.makeConstraints {
             $0.bottom.equalToSuperview().offset(-50)
         }

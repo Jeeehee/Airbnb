@@ -20,7 +20,7 @@ final class AppDIContainer {
             loginNavigationController
         ]
         
-        tabBarController.tabBar.backgroundColor = .greyBackground
+        tabBarController.tabBar.backgroundColor = .grayBackground
         tabBarController.tabBar.tintColor = .black
         
         homeNavigationController.tabBarItem = .init(

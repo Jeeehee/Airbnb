@@ -8,7 +8,9 @@
 import UIKit
 
 final class CloseButtonWithTitleView: UIView {
-    private let titleLable: UILabel = {
+    var delegate: SearchViewDelegate?
+    
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .init(name: NotoSans.bold.name, size: 18)
         label.textColor = .black
@@ -17,21 +19,22 @@ final class CloseButtonWithTitleView: UIView {
     
     private let closeButton: UIButton = {
         let button = UIButton()
+        let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 13)
+        button.setImage(UIImage.init(systemName: "xmark", withConfiguration: imageConfiguration), for: .normal)
         button.clipsToBounds = true
-        button.layer.cornerRadius = 20
-        button.setImage(UIImage.init(systemName: "xmark"), for: .normal)
+        button.layer.cornerRadius = 17
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.line?.cgColor
-        button.backgroundColor = .greyBackground
-        button.tintColor = .black
+        button.tintColor = .gray
         return button
     }()
     
     init(title: String) {
         super.init(frame: .zero)
-        self.titleLable.text = title
-        
+        self.titleLabel.text = title
+  
         layout()
+        addActionOfButton()
     }
     
     @available(*, unavailable)
@@ -41,16 +44,22 @@ final class CloseButtonWithTitleView: UIView {
     
     private func layout() {
         addSubview(closeButton)
-        addSubview(titleLable)
+        addSubview(titleLabel)
         
         closeButton.snp.makeConstraints {
             $0.top.leading.equalTo(safeAreaLayoutGuide).offset(20)
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(32)
         }
         
-        titleLable.snp.makeConstraints {
+        titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(closeButton)
         }
+    }
+    
+    private func addActionOfButton() {
+        closeButton.addAction(.init(handler: { _ in
+            self.delegate?.didTabCloseButton(didTab: true)
+        }), for: .touchUpInside)
     }
 }

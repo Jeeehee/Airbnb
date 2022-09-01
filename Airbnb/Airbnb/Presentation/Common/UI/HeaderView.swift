@@ -15,7 +15,6 @@ final class HeaderView: UICollectionReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans.medium.name, size: 22)
         label.numberOfLines = 0
         return label
     }()
@@ -41,7 +40,8 @@ final class HeaderView: UICollectionReusableView {
 
 // MARK: - 속성 변경
 extension HeaderView {
-    func configureHeaderView(title: String) {
+    func configureHeaderView(title: String, font: UIFont) {
         titleLabel.text = title
+        titleLabel.font = font
     }
 }

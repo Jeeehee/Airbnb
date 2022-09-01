@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-protocol InjectViewModel {
-    static func creat(with viewModel: HomeViewModelProtocol) -> UIViewController
+protocol InjectHomeViewModel {
+    static func creat(with viewModel: HomeViewModel) -> UIViewController
 }
 
 class HomeViewController: UIViewController {
-    private var viewModel: HomeViewModelProtocol?
+    private var viewModel: HomeViewModel?
     private let diffableDataSourceManager = DiffableDataSourceManager()
     private let searchView = SearchBarView()
     private let underLine = UIView()
     
-    private lazy var collectionView: UICollectionView = {
+    private var collectionView: UICollectionView = {
         let layout = LayoutFactory.creatLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return collectionView
@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
     }
     
     private func attribute() {
+        guard viewModel != nil else { return }
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         underLine.backgroundColor = .line
@@ -110,18 +111,19 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - ViewModel 생성 및 주입
-extension HomeViewController: InjectViewModel {
-    static func creat(with viewModel: HomeViewModelProtocol) -> UIViewController {
+extension HomeViewController: InjectHomeViewModel {
+    static func creat(with viewModel: HomeViewModel) -> UIViewController {
         let viewController = HomeViewController()
         viewController.viewModel = viewModel
         return viewController
     }
 }
 
+// MARK: - Delegate
 extension HomeViewController: SearchBarDelegate {
     func didBeginEditing(isStartEditing: Bool) {
         if isStartEditing {
-            let nextVieController = SearchBarViewController()
+            let nextVieController = SearchDIContainer.makeSearchViewController()
             self.navigationController?.pushViewController(nextVieController, animated: true)
         }
     }

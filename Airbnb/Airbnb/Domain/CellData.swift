@@ -1,11 +1,10 @@
 //
-//  ViewModel.swift
+//  CellData.swift
 //  Airbnb
 //
-//  Created by Jihee hwang on 2022/08/01.
+//  Created by Jihee hwang on 2022/08/23.
 //
 
-import Foundation
 import UIKit
 
 struct CellData {
@@ -23,20 +22,6 @@ struct CellData {
                               City(id: 4, image: UIImage(named: "Daegu")!, city: "대구", distance: "차로 3.5시간 거리"),
                               City(id: 4, image: UIImage(named: "Ulsan")!, city: "울산", distance: "차로 4.5시간 거리"),
                               City(id: 4, image: UIImage(named: "Daejeon")!, city: "대전", distance: "차로 2시간 거리"),
-                              City(id: 4, image: UIImage(named: "image1")!, city: "부천", distance: "차로 30분 거리")
+                              City(id: 4, image: UIImage(named: "Bucheon")!, city: "부천", distance: "차로 30분 거리")
     ]
-}
-
-struct HomeViewModel: HomeViewModelProtocol {
-    var input: HomeViewModelInput { self }
-    var output: HomeViewModelOutput { self }
-    
-    let isError: Observable<Bool> = Observable(false)
-    let errorMessage: Observable<String?> = Observable("NoError")
-    let sectionTitle: Observable<[String]> = Observable([
-        "어디에서나, 여행은\n살아보는거야!", "가까운 여행지 둘러보기"
-    ])
-    let items = Observable(ItemType(suggest: CellData.suggestData, city: CellData.cityData))
-    
-    // Usecase
 }

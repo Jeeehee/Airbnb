@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 typealias DataSource = UICollectionViewDiffableDataSource<SectionType, AnyHashable>
 
 final class DiffableDataSourceManager {
     var dataSource: DataSource?
     private let registration = CollectionViewRegistration()
+    var state = false
     
     func configureDataSource(in collectionView: UICollectionView) {
         // Cell Provider에 사용할 셀 등록
@@ -57,15 +59,26 @@ final class DiffableDataSourceManager {
         }
         let headerRegistration = registration.creatSectionHeaderRegister(font: headerFont)
         let cityCellRegistration = registration.createCityCellRegister()
-
+        let autoCompleteCellRegistration = registration.createAutoCompleteCellRegister()
+        
         let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
-            guard let item = item as? City else { return nil }
-            return collectionView.dequeueConfiguredReusableCell(
-                using: cityCellRegistration,
-                for: indexPath,
-                item: item)
+            
+            switch self.state {
+            case true:
+                guard let item = item as? MKLocalSearchCompletion else { return nil }
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: autoCompleteCellRegistration,
+                    for: indexPath,
+                    item: item)
+            case false:
+                guard let item = item as? City else { return nil }
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: cityCellRegistration,
+                    for: indexPath,
+                    item: item)
+            }
         }
-
+        
         dataSource?.supplementaryViewProvider = { collectionView, _, indexPath in
               collectionView.dequeueConfiguredReusableSupplementary(
                 using: headerRegistration, for: indexPath)
@@ -86,7 +99,14 @@ final class DiffableDataSourceManager {
         dataSource?.apply(citySnapShot, to: .city)
     }
     
-    func snapShotInSerchView(item: [City]) {
+    func snapShotAutoCompleteInSearchView(item: [NSObject]) {
+        var autoCompleteSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        autoCompleteSnapShot.append(item)
+
+        dataSource?.apply(autoCompleteSnapShot, to: .city)
+    }
+    
+    func snapShotInSearchView(item: [City]) {
         var citySnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
         citySnapShot.append(item)
 

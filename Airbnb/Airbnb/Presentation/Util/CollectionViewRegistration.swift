@@ -5,6 +5,7 @@
 //  Created by Jihee hwang on 2022/08/16.
 //
 
+import MapKit
 import UIKit
 
 final class CollectionViewRegistration {
@@ -26,6 +27,12 @@ final class CollectionViewRegistration {
     func createCityCellRegister() -> UICollectionView.CellRegistration<CityCell, City> {
         UICollectionView.CellRegistration.init { cell, _, item in
             cell.configureCityCell(model: item)
+        }
+    }
+    
+    func createAutoCompleteCellRegister() -> UICollectionView.CellRegistration<CityCell, MKLocalSearchCompletion> {
+        UICollectionView.CellRegistration.init { cell, _, item in
+            cell.configureAutoCompleteCell(title: item.title, address: item.subtitle)
         }
     }
     

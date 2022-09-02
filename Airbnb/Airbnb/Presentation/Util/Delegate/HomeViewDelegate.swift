@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SearchBarDelegate {
+protocol HomeViewSearchBarDelegate {
     func didBeginEditing(isStartEditing: Bool)
 }

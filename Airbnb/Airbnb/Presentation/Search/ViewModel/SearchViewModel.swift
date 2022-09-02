@@ -13,6 +13,6 @@ struct SearchViewModel: SearchViewModelProtocol {
     
     let isError: Observable<Bool> = Observable(false)
     let errorMessage: Observable<String?> = Observable("NoError")
-    let sectionTitle: Observable<[String]> = Observable([ "근처 인기 여행지" ])
+    let sectionTitle: Observable<[String]> = Observable(["근처 인기 여행지"])
     let items: Observable<[City]> = Observable(CellData.cityData)
 }

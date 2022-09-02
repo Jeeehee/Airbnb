@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         underLine.backgroundColor = .line
-        searchView.searchBardelegate = self
+        searchView.homeSearchBardelegate = self
     }
     
     private func layout() {
@@ -120,7 +120,7 @@ extension HomeViewController: InjectHomeViewModel {
 }
 
 // MARK: - Delegate
-extension HomeViewController: SearchBarDelegate {
+extension HomeViewController: HomeViewSearchBarDelegate {
     func didBeginEditing(isStartEditing: Bool) {
         if isStartEditing {
             let nextVieController = SearchDIContainer.makeSearchViewController()

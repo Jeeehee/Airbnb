@@ -10,3 +10,7 @@ import Foundation
 protocol SearchViewDelegate {
     func didTabCloseButton(didTab: Bool)
 }
+
+protocol SearchViewSearchBarDelegate {
+    func didGetTheData(didGet: Bool, data: [NSObject]?)
+}

@@ -5,11 +5,14 @@
 //  Created by Jihee hwang on 2022/08/17.
 //
 
+import MapKit
 import UIKit
 import SnapKit
 
 final class SearchBarView: UIView {
-    var searchBardelegate: SearchBarDelegate?
+    var homeSearchBardelegate: HomeViewSearchBarDelegate?
+    var searchViewSearchBardelegate: SearchViewSearchBarDelegate?
+    private var searchCompleter = MKLocalSearchCompleter() // 자동완성 객체
     
     private lazy var searchBar: UISearchBar = {
         let image = setSearchBarBackground(color: .white, size: CGSize(width: 10, height: 100))
@@ -38,6 +41,7 @@ final class SearchBarView: UIView {
     
     private func attribute() {
         searchBar.delegate = self
+        searchCompleter.delegate = self
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.18
@@ -65,6 +69,21 @@ final class SearchBarView: UIView {
 extension SearchBarView: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
-        searchBardelegate?.didBeginEditing(isStartEditing: true)
+        homeSearchBardelegate?.didBeginEditing(isStartEditing: true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            searchViewSearchBardelegate?.didGetTheData(didGet: false, data: nil)
+            return
+        }
+        searchCompleter.queryFragment = searchText
+    }
+}
+
+extension SearchBarView: MKLocalSearchCompleterDelegate {
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        let result = completer.results
+        searchViewSearchBardelegate?.didGetTheData(didGet: true, data: result)
     }
 }

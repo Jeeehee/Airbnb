@@ -41,6 +41,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .white
         underLine.backgroundColor = .line
         titleView.delegate = self
+        searchView.searchViewSearchBardelegate = self
     }
     
     private func layout() {
@@ -83,7 +84,7 @@ class SearchViewController: UIViewController {
         
         viewModel?.output.items.bind { [weak self] city in
             guard !city.isEmpty else { return }
-            self?.diffableDataSourceManager.snapShotInSerchView(item: city)
+            self?.diffableDataSourceManager.snapShotInSearchView(item: city)
         }
     }
 }
@@ -102,7 +103,24 @@ extension SearchViewController: SearchViewDelegate {
     func didTabCloseButton(didTab: Bool) {
         if didTab {
             navigationController?.popViewController(animated: true)
+        }
+    }
+}
 
+extension SearchViewController: SearchViewSearchBarDelegate {
+    func didGetTheData(didGet: Bool, data: [NSObject]?) {
+        switch didGet {
+        case true:
+            guard let data = data else { return }
+            self.diffableDataSourceManager.state = true
+            self.diffableDataSourceManager.snapShotAutoCompleteInSearchView(item: data)
+        case false:
+            self.diffableDataSourceManager.state = false
+            // 하단 로직 변경
+            viewModel?.output.items.bind { [weak self] city in
+                guard !city.isEmpty else { return }
+                self?.diffableDataSourceManager.snapShotInSearchView(item: city)
+            }
         }
     }
 }

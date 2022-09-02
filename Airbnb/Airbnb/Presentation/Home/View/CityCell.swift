@@ -63,6 +63,13 @@ final class CityCell: UICollectionViewCell {
             $0.trailing.equalToSuperview()
         }
     }
+    
+    private func configureAutoCompleteImageView() {
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
+        imageView.backgroundColor = .grayBackground
+        imageView.image = .init(named: "symbol")
+    }
 }
 
 // MARK: - 속성 변경
@@ -71,5 +78,11 @@ extension CityCell {
         imageView.image = model?.image
         cityLabel.text = model?.city
         distanceLabel.text = model?.distance
+    }
+    
+    func configureAutoCompleteCell(title: String, address: String) {
+        configureAutoCompleteImageView()
+        cityLabel.text = title
+        distanceLabel.text = address
     }
 }

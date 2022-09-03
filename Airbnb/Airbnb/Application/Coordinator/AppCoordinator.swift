@@ -1,5 +1,5 @@
 //
-//  AppDIContainer.swift
+//  AppCoordinator.swift
 //  Airbnb
 //
 //  Created by Jihee hwang on 2022/08/12.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class AppDIContainer {
+final class AppCoordinator {
     static func start() -> UITabBarController {
         let tabBarController = UITabBarController()
-        let homeNavigationController = UINavigationController(rootViewController: HomeDIContainer.makeHomeViewController())
+        let homeNavigationController = UINavigationController(rootViewController: HomeCoordinator.makeHomeViewController())
         let wishListNavigationController = UINavigationController()
         let loginNavigationController = UINavigationController()
         

@@ -1,20 +1,24 @@
 PODS:
+  - FSCalendar (2.8.4)
   - SnapKit (5.6.0)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
+  - FSCalendar
   - SnapKit (~> 5.6.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - FSCalendar
     - SnapKit
     - SwiftLint
 
 SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 3f7a90787779c6494816d97e952c1063c679e7ad
+PODFILE CHECKSUM: b349eec9b86b0790ae947c1a926e7b1c1b9f2ca2
 
 COCOAPODS: 1.11.3

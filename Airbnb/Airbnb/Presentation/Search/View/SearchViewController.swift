@@ -42,6 +42,7 @@ class SearchViewController: UIViewController {
         underLine.backgroundColor = .line
         titleView.delegate = self
         searchView.searchViewSearchBardelegate = self
+        collectionView.delegate = self
     }
     
     private func layout() {
@@ -99,10 +100,11 @@ extension SearchViewController: InjectSearchViewModel {
 }
 
 // MARK: - Delegate
-extension SearchViewController: SearchViewDelegate {
+extension SearchViewController: ColseButtonDelegate {
     func didTabCloseButton(didTab: Bool) {
         if didTab {
-            navigationController?.popViewController(animated: true)
+            let nextViewController = HomeCoordinator.makeHomeViewController()
+            self.navigationController?.pushViewController(nextViewController, animated: false)
         }
     }
 }
@@ -122,5 +124,12 @@ extension SearchViewController: SearchViewSearchBarDelegate {
                 self?.diffableDataSourceManager.snapShotInSearchView(item: city)
             }
         }
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextViewController = CalendarViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

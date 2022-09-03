@@ -123,8 +123,8 @@ extension HomeViewController: InjectHomeViewModel {
 extension HomeViewController: HomeViewSearchBarDelegate {
     func didBeginEditing(isStartEditing: Bool) {
         if isStartEditing {
-            let nextVieController = SearchDIContainer.makeSearchViewController()
-            self.navigationController?.pushViewController(nextVieController, animated: true)
+            let nextViewController = SearchCoordinator.makeSearchViewController()
+            self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
 }

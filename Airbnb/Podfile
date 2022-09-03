@@ -8,4 +8,5 @@ target 'Airbnb' do
   # Pods for Airbnb
   pod 'SwiftLint'
   pod 'SnapKit', '~> 5.6.0'
+  pod 'FSCalendar'
 end

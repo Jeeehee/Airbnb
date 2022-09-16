@@ -37,6 +37,17 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let repo = Repository()
+        repo.getAddress { data in
+            print("ddd")
+            switch data {
+                
+            case let .success(address):
+                print(address)
+            case let .failure(error):
+                print(error)
+            }
+        }
         
         diffableDataSourceManager.configureDataSource(in: collectionView)
         addActionOfButton()

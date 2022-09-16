@@ -18,6 +18,12 @@
 		7345F63C2897A5D00000E53F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63B2897A5D00000E53F /* Observable.swift */; };
 		7345F63E2897B3170000E53F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345F63D2897B3170000E53F /* HomeViewModel.swift */; };
 		734A408C2878417400BB2831 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 734A408B2878417400BB2831 /* .swiftlint.yml */; };
+		7362210828C5C64B003052A0 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210728C5C64B003052A0 /* UseCase.swift */; };
+		7362210D28C5C75B003052A0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210C28C5C75B003052A0 /* Repository.swift */; };
+		7362210F28C5C76B003052A0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210E28C5C76B003052A0 /* Service.swift */; };
+		7362211328C5C7BB003052A0 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211228C5C7BB003052A0 /* DTO.swift */; };
+		7362211628C5C7EA003052A0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211528C5C7EA003052A0 /* NetworkError.swift */; };
+		7362211928C5CFD2003052A0 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211828C5CFD2003052A0 /* MapTableViewCell.swift */; };
 		737B13AB28AF273F00097DCE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B13AA28AF273F00097DCE /* MapViewController.swift */; };
 		7389D06628A4D28500BC58A4 /* SuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D06528A4D28500BC58A4 /* SuggestCell.swift */; };
 		7389D06C28A4D6C600BC58A4 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D06B28A4D6C600BC58A4 /* Font.swift */; };
@@ -55,13 +61,13 @@
 		73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF0D628AC9175004B8226 /* SearchBarView.swift */; };
 		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
 		73DCFCDD2899121A00544915 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */; };
-		ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */; };
+		73EAE5B528D176FA00F3BDC8 /* GoogleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EAE5B428D176FA00F3BDC8 /* GoogleManager.swift */; };
+		73F907E728C719D700AE9CA3 /* MapTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2239697FCC590997A7663121 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
-		46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FB252D9B70782520BD4F91C /* Pods-Airbnb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.release.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.release.xcconfig"; sourceTree = "<group>"; };
+		02FF3D47058EE83FA279C16E /* Pods_Airbnb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5577C1EEC7788A90EF41A8EF /* Pods-Airbnb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.release.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.release.xcconfig"; sourceTree = "<group>"; };
 		73060F0128B3751400DE8D4F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		73060F0328B37FD000DE8D4F /* CloseButtonWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonWithTitleView.swift; sourceTree = "<group>"; };
 		731693EF28C3116200ED847F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,12 @@
 		7345F63B2897A5D00000E53F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7345F63D2897B3170000E53F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		734A408B2878417400BB2831 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		7362210728C5C64B003052A0 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		7362210C28C5C75B003052A0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7362210E28C5C76B003052A0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7362211228C5C7BB003052A0 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
+		7362211528C5C7EA003052A0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7362211828C5CFD2003052A0 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		737B13AA28AF273F00097DCE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7389D06528A4D28500BC58A4 /* SuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCell.swift; sourceTree = "<group>"; };
 		7389D06B28A4D6C600BC58A4 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -112,6 +124,9 @@
 		73CCF0D628AC9175004B8226 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		73EAE5B428D176FA00F3BDC8 /* GoogleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleManager.swift; sourceTree = "<group>"; };
+		73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewDataSource.swift; sourceTree = "<group>"; };
+		C562D27082F1CD79FE807630 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,27 +134,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF45ADBCFB990B95A2E810D /* Pods_Airbnb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		259A744CE83A1EDE980D26B5 /* Frameworks */ = {
+		02267CFEF300B2455F045F4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				46C951C3BB4642BF7E35379E /* Pods_Airbnb.framework */,
+				02FF3D47058EE83FA279C16E /* Pods_Airbnb.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		73060EFB28B373AB00DE8D4F /* Delegate */ = {
+		73060EFB28B373AB00DE8D4F /* Delegate&DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				7390CF1228B4AD8500D8F2EF /* Delegate.swift */,
+				73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */,
+				7390CF0A28B498F500D8F2EF /* DiffableDataSourceManager.swift */,
+				73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */,
 			);
-			path = Delegate;
+			path = "Delegate&DataSource";
 			sourceTree = "<group>";
 		};
 		73060F0028B3750000DE8D4F /* Search */ = {
@@ -193,7 +210,7 @@
 				7330525D28770544009065CC /* Airbnb */,
 				7330525C28770544009065CC /* Products */,
 				E8D4B2812318D2DE2C5B9E8F /* Pods */,
-				259A744CE83A1EDE980D26B5 /* Frameworks */,
+				02267CFEF300B2455F045F4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,8 +225,10 @@
 		7330525D28770544009065CC /* Airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				7362210B28C5C744003052A0 /* Mock */,
 				734A4088287840F600BB2831 /* Application */,
 				7389D06F28A4D9E800BC58A4 /* Domain */,
+				7362210928C5C703003052A0 /* Data */,
 				73DCFCD728990F0A00544915 /* Presentation */,
 				734A40892878410800BB2831 /* Resources */,
 			);
@@ -266,10 +285,62 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		737B13A928AF272B00097DCE /* Map */ = {
+		7362210928C5C703003052A0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7362211428C5C7DA003052A0 /* Error */,
+				7362211028C5C7AB003052A0 /* DTO */,
+				7362210A28C5C712003052A0 /* Repository */,
+				7362210E28C5C76B003052A0 /* Service.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7362210A28C5C712003052A0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7362210C28C5C75B003052A0 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		7362210B28C5C744003052A0 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				7390CF1028B4A52E00D8F2EF /* CellData.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		7362211028C5C7AB003052A0 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				7362211228C5C7BB003052A0 /* DTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		7362211428C5C7DA003052A0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7362211528C5C7EA003052A0 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		7362211728C5CFAE003052A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				737B13AA28AF273F00097DCE /* MapViewController.swift */,
+				7362211828C5CFD2003052A0 /* MapTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		737B13A928AF272B00097DCE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7362211728C5CFAE003052A0 /* View */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -277,21 +348,13 @@
 		7389D06F28A4D9E800BC58A4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				7389D07028A4D9F400BC58A4 /* Entity */,
-				7390CF1028B4A52E00D8F2EF /* CellData.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		7389D07028A4D9F400BC58A4 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
+				7362210728C5C64B003052A0 /* UseCase.swift */,
 				7389D06D28A4D9A800BC58A4 /* Suggest.swift */,
 				7389D07328A4DAE500BC58A4 /* City.swift */,
 				73CCF09428AB62BB004B8226 /* SectionType.swift */,
 				73CCF09628AB670C004B8226 /* ItemType.swift */,
 			);
-			path = Entity;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		7389D07528A4DC9900BC58A4 /* Extension */ = {
@@ -381,12 +444,11 @@
 		73DCFCD828990F2800544915 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				73060EFB28B373AB00DE8D4F /* Delegate */,
+				73060EFB28B373AB00DE8D4F /* Delegate&DataSource */,
 				7345F63B2897A5D00000E53F /* Observable.swift */,
 				73DCFCD928990F3900544915 /* Log.swift */,
 				7389D07828A4E37E00BC58A4 /* LayoutFactory.swift */,
-				73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */,
-				7390CF0A28B498F500D8F2EF /* DiffableDataSourceManager.swift */,
+				73EAE5B428D176FA00F3BDC8 /* GoogleManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -403,8 +465,8 @@
 		E8D4B2812318D2DE2C5B9E8F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2239697FCC590997A7663121 /* Pods-Airbnb.debug.xcconfig */,
-				4FB252D9B70782520BD4F91C /* Pods-Airbnb.release.xcconfig */,
+				C562D27082F1CD79FE807630 /* Pods-Airbnb.debug.xcconfig */,
+				5577C1EEC7788A90EF41A8EF /* Pods-Airbnb.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -416,12 +478,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7330526F28770546009065CC /* Build configuration list for PBXNativeTarget "Airbnb" */;
 			buildPhases = (
-				40C97A1A3A2E2616992ADC61 /* [CP] Check Pods Manifest.lock */,
+				5DAAA966FAAFDC95377531B6 /* [CP] Check Pods Manifest.lock */,
 				734A408F2878420800BB2831 /* Swift Lint Script */,
 				7330525728770543009065CC /* Sources */,
 				7330525828770543009065CC /* Frameworks */,
 				7330525928770543009065CC /* Resources */,
-				3292F4A970F25733DFE8B6DF /* [CP] Embed Pods Frameworks */,
+				0A4D5E367CC61BA1D6736643 /* [CP] Embed Pods Frameworks */,
+				8232693AFE7175201BD61EFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -489,7 +552,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3292F4A970F25733DFE8B6DF /* [CP] Embed Pods Frameworks */ = {
+		0A4D5E367CC61BA1D6736643 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +569,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Airbnb/Pods-Airbnb-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		40C97A1A3A2E2616992ADC61 /* [CP] Check Pods Manifest.lock */ = {
+		5DAAA966FAAFDC95377531B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,6 +609,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		8232693AFE7175201BD61EFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Airbnb/Pods-Airbnb-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Airbnb/Pods-Airbnb-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Airbnb/Pods-Airbnb-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -559,8 +639,11 @@
 				7390CF1328B4AD8500D8F2EF /* Delegate.swift in Sources */,
 				739F0E3E28B602A5003B7662 /* SearchCoordinator.swift in Sources */,
 				73CCF09528AB62BB004B8226 /* SectionType.swift in Sources */,
+				7362211328C5C7BB003052A0 /* DTO.swift in Sources */,
 				7389D07228A4DACD00BC58A4 /* CityCell.swift in Sources */,
 				73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */,
+				7362211628C5C7EA003052A0 /* NetworkError.swift in Sources */,
+				7362210D28C5C75B003052A0 /* Repository.swift in Sources */,
 				7389D06C28A4D6C600BC58A4 /* Font.swift in Sources */,
 				739739AC28A61E0C00213606 /* LoginViewController.swift in Sources */,
 				7345F63C2897A5D00000E53F /* Observable.swift in Sources */,
@@ -579,14 +662,19 @@
 				731693F028C3116200ED847F /* CalendarViewController.swift in Sources */,
 				7389D07D28A4F2ED00BC58A4 /* Text.swift in Sources */,
 				737B13AB28AF273F00097DCE /* MapViewController.swift in Sources */,
+				73EAE5B528D176FA00F3BDC8 /* GoogleManager.swift in Sources */,
 				7390CF0B28B498F500D8F2EF /* DiffableDataSourceManager.swift in Sources */,
 				7390CF0D28B4A49700D8F2EF /* SearchViewModel.swift in Sources */,
+				7362210F28C5C76B003052A0 /* Service.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,
+				73F907E728C719D700AE9CA3 /* MapTableViewDataSource.swift in Sources */,
 				73CCF09728AB670C004B8226 /* ItemType.swift in Sources */,
 				7389D07428A4DAE500BC58A4 /* City.swift in Sources */,
 				7389D06628A4D28500BC58A4 /* SuggestCell.swift in Sources */,
 				7389D07928A4E37E00BC58A4 /* LayoutFactory.swift in Sources */,
+				7362210828C5C64B003052A0 /* UseCase.swift in Sources */,
 				7389D07B28A4EE8800BC58A4 /* HeaderView.swift in Sources */,
+				7362211928C5CFD2003052A0 /* MapTableViewCell.swift in Sources */,
 				7390CF1128B4A52E00D8F2EF /* CellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,13 +800,14 @@
 		};
 		7330527028770546009065CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2239697FCC590997A7663121 /* Pods-Airbnb.debug.xcconfig */;
+			baseConfigurationReference = C562D27082F1CD79FE807630 /* Pods-Airbnb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6Y9V523M6R;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Airbnb/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -740,7 +829,7 @@
 		};
 		7330527128770546009065CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FB252D9B70782520BD4F91C /* Pods-Airbnb.release.xcconfig */;
+			baseConfigurationReference = 5577C1EEC7788A90EF41A8EF /* Pods-Airbnb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol HomeViewSearchBarDelegate {
+protocol HomeViewSearchBarDelegate: AnyObject {
     func didBeginEditing(isStartEditing: Bool)
 }
 
-protocol ColseButtonDelegate {
+protocol ColseButtonDelegate: AnyObject {
     func didTabCloseButton(didTab: Bool)
 }
 
-protocol SearchViewSearchBarDelegate {
+protocol SearchViewSearchBarDelegate: AnyObject {
     func didGetTheData(didGet: Bool, data: [NSObject]?)
 }

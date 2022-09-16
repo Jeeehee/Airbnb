@@ -9,7 +9,6 @@ import MapKit
 import UIKit
 
 final class CollectionViewRegistration {
-    // <어떤 셀에, 어떤데이터를> 넣을거니
     private var headerText = [String]()
     
     func creatSectionHeaderRegister(font: UIFont) -> UICollectionView.SupplementaryRegistration<HeaderView> {

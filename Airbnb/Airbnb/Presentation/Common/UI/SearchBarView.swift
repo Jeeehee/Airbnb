@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 
 final class SearchBarView: UIView {
-    var homeSearchBardelegate: HomeViewSearchBarDelegate?
-    var searchViewSearchBardelegate: SearchViewSearchBarDelegate?
+    weak var homeSearchBardelegate: HomeViewSearchBarDelegate?
+    weak var searchViewSearchBardelegate: SearchViewSearchBarDelegate?
     private var searchCompleter = MKLocalSearchCompleter() // 자동완성 객체
     
     private lazy var searchBar: UISearchBar = {

@@ -8,7 +8,7 @@
 import UIKit
 
 final class CloseButtonWithTitleView: UIView {
-    var delegate: ColseButtonDelegate?
+    weak var delegate: ColseButtonDelegate?
     
     private let titleLabel: UILabel = {
         let label = UILabel()

@@ -11,12 +11,11 @@ import MapKit
 typealias DataSource = UICollectionViewDiffableDataSource<SectionType, AnyHashable>
 
 final class DiffableDataSourceManager {
-    var dataSource: DataSource?
     private let registration = CollectionViewRegistration()
+    var dataSource: DataSource?
     var state = false
     
     func configureDataSource(in collectionView: UICollectionView) {
-        // Cell Provider에 사용할 셀 등록
         guard let headerFont = UIFont.init(name: NotoSans.medium.name, size: 22) else {
             UIFont.systemFont(ofSize: 22, weight: .medium); return
         }
@@ -25,7 +24,6 @@ final class DiffableDataSourceManager {
         let cityCellRegistration = registration.createCityCellRegister()
 
         let dataSource: DataSource? = .init(collectionView: collectionView) { collectionView, indexPath, item in
-            // indexPath의 Section을 이용해서 우리가 정의한 SectionType(Enum)을 만든다.
             guard let section = SectionType(rawValue: indexPath.section) else { return nil }
 
             switch section {

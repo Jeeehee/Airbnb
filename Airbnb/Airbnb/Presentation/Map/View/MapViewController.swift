@@ -81,16 +81,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         attribute()
         layout()
-        let gg = GoogleManager.shared
-        print(gg.getCurrentPlace())
-        setMarker(position: gg.getCurrentPlace())
-    }
-    
-    private func setMarker(position: CLLocationCoordinate2D) {
-        marker.position = position
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
     }
     
     private func attribute() {

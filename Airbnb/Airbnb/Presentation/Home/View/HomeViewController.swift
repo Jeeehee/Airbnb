@@ -37,14 +37,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for family in UIFont.familyNames {
-          print(family)
-
-          for sub in UIFont.fontNames(forFamilyName: family) {
-            print("====> \(sub)")
-          }
-        }
-        
         
         let repo = Repository()
         repo.getAddress { data in
@@ -72,10 +64,11 @@ class HomeViewController: UIViewController {
     
     private func attribute() {
         guard viewModel != nil else { return }
+        
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         underLine.backgroundColor = .line
-        searchView.homeSearchBardelegate = self
+        searchView.searchBardelegate = self
     }
     
     private func layout() {
@@ -140,7 +133,7 @@ extension HomeViewController: InjectHomeViewModel {
 }
 
 // MARK: - Delegate
-extension HomeViewController: HomeViewSearchBarDelegate {
+extension HomeViewController: SearchBarDelegate {
     func didBeginEditing(isStartEditing: Bool) {
         if isStartEditing {
             let nextViewController = SearchCoordinator.makeSearchViewController()

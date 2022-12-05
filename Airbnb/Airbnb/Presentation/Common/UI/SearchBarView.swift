@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class SearchBarView: UIView {
-    weak var homeSearchBardelegate: HomeViewSearchBarDelegate?
+    weak var searchBardelegate: SearchBarDelegate?
     weak var searchViewSearchBardelegate: SearchViewSearchBarDelegate?
     private var searchCompleter = MKLocalSearchCompleter() // 자동완성 객체
     
@@ -69,7 +69,7 @@ final class SearchBarView: UIView {
 extension SearchBarView: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
-        homeSearchBardelegate?.didBeginEditing(isStartEditing: true)
+        searchBardelegate?.didBeginEditing(isStartEditing: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

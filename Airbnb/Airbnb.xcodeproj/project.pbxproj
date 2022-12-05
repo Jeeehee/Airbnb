@@ -55,6 +55,7 @@
 		739739AF28A61E3E00213606 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739739AE28A61E3E00213606 /* WishListViewController.swift */; };
 		739739B128A623E400213606 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739739B028A623E400213606 /* AppCoordinator.swift */; };
 		739F0E3E28B602A5003B7662 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739F0E3D28B602A5003B7662 /* SearchCoordinator.swift */; };
+		73BD0414293DB442000A762C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BD0413293DB442000A762C /* MapViewModel.swift */; };
 		73CCF09528AB62BB004B8226 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09428AB62BB004B8226 /* SectionType.swift */; };
 		73CCF09728AB670C004B8226 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09628AB670C004B8226 /* ItemType.swift */; };
 		73CCF09928AB84B6004B8226 /* CollectionViewRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */; };
@@ -117,6 +118,7 @@
 		739739AE28A61E3E00213606 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		739739B028A623E400213606 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		739F0E3D28B602A5003B7662 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		73BD0413293DB442000A762C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		73CCF09428AB62BB004B8226 /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		73CCF09628AB670C004B8226 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		73CCF09828AB84B6004B8226 /* CollectionViewRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRegistration.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		737B13A928AF272B00097DCE /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				73BD0413293DB442000A762C /* MapViewModel.swift */,
 				7362211728C5CFAE003052A0 /* View */,
 			);
 			path = Map;
@@ -630,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BD0414293DB442000A762C /* MapViewModel.swift in Sources */,
 				7345F63E2897B3170000E53F /* HomeViewModel.swift in Sources */,
 				739739AF28A61E3E00213606 /* WishListViewController.swift in Sources */,
 				73399DFC289B705500201328 /* HomeCoordinator.swift in Sources */,

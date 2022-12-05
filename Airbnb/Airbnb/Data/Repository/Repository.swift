@@ -19,8 +19,7 @@ final class Repository {
     func getAddress(completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url) else { return }
         var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-        
+
         session.dataTask(with: request) { data, response, error in
             if let error = self.errorCheck(data: data, response: response, error: error) {
                 completion(.failure(.error(error)))
@@ -33,7 +32,6 @@ final class Repository {
                 do {
                     guard let decodeResponse = try? JSONDecoder().decode(Data.self, from: data) else { return }
                     if let result = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as String? { print(result) }
-//                    print(decodeResponse)
                     completion(.success(decodeResponse))
                     
                 } catch {

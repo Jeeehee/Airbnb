@@ -258,7 +258,6 @@
 			children = (
 				7397398828A6169C00213606 /* Info.plist */,
 				7330526728770546009065CC /* Assets.xcassets */,
-				7397399428A6184300213606 /* NotoSansKR-Black.otf */,
 				739739A928A61AEA00213606 /* font */,
 			);
 			path = Resources;
@@ -393,6 +392,7 @@
 		739739A928A61AEA00213606 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				7397399428A6184300213606 /* NotoSansKR-Black.otf */,
 				7397399528A6184300213606 /* NotoSansKR-Bold.otf */,
 				7397399628A6184300213606 /* NotoSansKR-Medium.otf */,
 				7397399728A6184300213606 /* NotoSansKR-Regular.otf */,

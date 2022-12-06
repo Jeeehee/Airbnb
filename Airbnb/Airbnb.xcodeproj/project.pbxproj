@@ -62,6 +62,7 @@
 		73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCF0D628AC9175004B8226 /* SearchBarView.swift */; };
 		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
 		73DCFCDD2899121A00544915 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */; };
+		73DFEBC4293EDE000073AA95 /* MapTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DFEBC3293EDE000073AA95 /* MapTableCellView.swift */; };
 		73F907E728C719D700AE9CA3 /* MapTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		73CCF0D628AC9175004B8226 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		73DFEBC3293EDE000073AA95 /* MapTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableCellView.swift; sourceTree = "<group>"; };
 		73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewDataSource.swift; sourceTree = "<group>"; };
 		C562D27082F1CD79FE807630 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -332,6 +334,7 @@
 			children = (
 				737B13AA28AF273F00097DCE /* MapViewController.swift */,
 				7362211828C5CFD2003052A0 /* MapTableViewCell.swift */,
+				73DFEBC3293EDE000073AA95 /* MapTableCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				73DCFCDD2899121A00544915 /* HomeViewModelProtocol.swift in Sources */,
 				7389D06E28A4D9A800BC58A4 /* Suggest.swift in Sources */,
 				7389D07728A4DCB400BC58A4 /* Extension+UIColor.swift in Sources */,
+				73DFEBC4293EDE000073AA95 /* MapTableCellView.swift in Sources */,
 				7330525F28770544009065CC /* AppDelegate.swift in Sources */,
 				739739B128A623E400213606 /* AppCoordinator.swift in Sources */,
 				731693F028C3116200ED847F /* CalendarViewController.swift in Sources */,

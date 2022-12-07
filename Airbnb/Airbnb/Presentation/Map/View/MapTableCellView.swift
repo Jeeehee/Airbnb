@@ -1,10 +1,3 @@
-//
-//  MapTableView.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/12/06.
-//
-
 import SnapKit
 import UIKit
 
@@ -17,14 +10,6 @@ final class MapTableView: UIView {
         tableView.isScrollEnabled = false
         tableView.dataSource = tableViewDataSource
         return tableView
-    }()
-    
-    private let tableViewBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        return view
     }()
     
     private let deleteButton: UIButton = {
@@ -50,7 +35,8 @@ final class MapTableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
+        attribute()
         layout()
     }
     
@@ -59,19 +45,19 @@ final class MapTableView: UIView {
         fatalError("Init with coder is unavailable")
     }
     
+    private func attribute() {
+        backgroundColor = .white
+        clipsToBounds = true
+        layer.cornerRadius = 30
+    }
+    
     private func layout() {
-        addSubview(tableViewBackgroundView)
-        
-        tableViewBackgroundView.addSubview(tableView)
-        tableViewBackgroundView.addSubview(deleteButton)
-        tableViewBackgroundView.addSubview(searchButton)
-        
-        tableViewBackgroundView.snp.makeConstraints {
-            $0.top.equalTo(tableView.snp.top).offset(-10)
-            $0.bottom.leading.trailing.equalToSuperview()
-        }
+        addSubview(tableView)
+        addSubview(deleteButton)
+        addSubview(searchButton)
         
         tableView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
             $0.bottom.equalTo(deleteButton.snp.top).offset(-10)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(150)
@@ -79,13 +65,13 @@ final class MapTableView: UIView {
         
         deleteButton.snp.makeConstraints {
             $0.bottom.equalTo(searchButton.snp.top).offset(-10)
-            $0.leading.equalToSuperview().offset(30)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         searchButton.snp.makeConstraints {
             $0.top.equalTo(deleteButton).offset(40)
-            $0.leading.equalToSuperview().offset(30)
-            $0.trailing.bottom.equalTo(safeAreaLayoutGuide).offset(-30)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.bottom.equalToSuperview().offset(-20)
             $0.height.equalTo(45)
         }
     }

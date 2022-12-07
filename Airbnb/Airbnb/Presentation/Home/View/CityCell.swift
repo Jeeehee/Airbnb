@@ -1,10 +1,3 @@
-//
-//  CityCell.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/11.
-//
-
 import UIKit
 import SnapKit
 
@@ -14,6 +7,7 @@ final class CityCell: UICollectionViewCell {
     }
     
     private let imageView = UIImageView()
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .leading
@@ -30,7 +24,7 @@ final class CityCell: UICollectionViewCell {
     
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.light.name, size: 15)
+        label.font = .init(name: NotoSans.regular.name, size: 15)
         label.textColor = .lightGray
         return label
     }()

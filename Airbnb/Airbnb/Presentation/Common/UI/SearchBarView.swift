@@ -1,10 +1,3 @@
-//
-//  SearchBarView.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/17.
-//
-
 import MapKit
 import UIKit
 import SnapKit

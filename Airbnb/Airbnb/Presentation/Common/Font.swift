@@ -1,10 +1,3 @@
-//
-//  Font.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/11.
-//
-
 import Foundation
 
 enum NotoSans: String {
@@ -12,7 +5,6 @@ enum NotoSans: String {
     case bold
     case medium
     case regular
-    case light
     case thin
     
     var name: String {
@@ -25,8 +17,6 @@ enum NotoSans: String {
             return "NotoSansKR-Medium"
         case .regular:
             return "NotoSansKR-Regular"
-        case .light:
-            return "NotoSansKR-Light"
         case .thin:
             return "NotoSansKR-Thin"
         }

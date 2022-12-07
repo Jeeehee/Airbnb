@@ -1,10 +1,3 @@
-//
-//  CalendarViewController.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/09/03.
-//
-
 import UIKit
 import FSCalendar
 

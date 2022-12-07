@@ -1,10 +1,3 @@
-//
-//  CloseButtonWithTitleView.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/22.
-//
-
 import UIKit
 
 final class CloseButtonWithTitleView: UIView {

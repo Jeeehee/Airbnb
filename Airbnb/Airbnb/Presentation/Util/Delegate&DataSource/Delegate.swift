@@ -1,10 +1,3 @@
-//
-//  Delegate.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/23.
-//
-
 import Foundation
 
 protocol SearchBarDelegate: AnyObject {

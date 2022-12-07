@@ -1,10 +1,3 @@
-//
-//  ViewModel.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/01.
-//
-
 import Foundation
 
 struct HomeViewModel: HomeViewModelProtocol {

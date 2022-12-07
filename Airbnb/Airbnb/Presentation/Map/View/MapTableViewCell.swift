@@ -1,10 +1,3 @@
-//
-//  MapTableViewCell.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/09/05.
-//
-
 import UIKit
 import SnapKit
 
@@ -22,7 +15,7 @@ class MapTableViewCell: UITableViewCell {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .init(name: NotoSans.light.name, size: 14)
+        label.font = .init(name: NotoSans.regular.name, size: 14)
         label.textColor = .black
         return label
     }()
@@ -43,13 +36,13 @@ class MapTableViewCell: UITableViewCell {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(15)
-            $0.leading.equalToSuperview().offset(30)
+            $0.leading.equalToSuperview().offset(20)
             $0.bottom.equalToSuperview().offset(-15)
         }
         
         descriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.trailing.equalToSuperview().offset(-20)
         }
     }
 }

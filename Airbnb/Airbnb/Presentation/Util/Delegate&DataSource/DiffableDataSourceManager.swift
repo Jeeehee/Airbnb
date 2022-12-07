@@ -1,10 +1,3 @@
-//
-//  DiffableDataSourceManager.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/23.
-//
-
 import UIKit
 import MapKit
 

@@ -20,8 +20,6 @@
 		734A408C2878417400BB2831 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 734A408B2878417400BB2831 /* .swiftlint.yml */; };
 		7362210828C5C64B003052A0 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210728C5C64B003052A0 /* UseCase.swift */; };
 		7362210D28C5C75B003052A0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210C28C5C75B003052A0 /* Repository.swift */; };
-		7362210F28C5C76B003052A0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362210E28C5C76B003052A0 /* Service.swift */; };
-		7362211328C5C7BB003052A0 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211228C5C7BB003052A0 /* DTO.swift */; };
 		7362211628C5C7EA003052A0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211528C5C7EA003052A0 /* NetworkError.swift */; };
 		7362211928C5CFD2003052A0 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362211828C5CFD2003052A0 /* MapTableViewCell.swift */; };
 		737B13AB28AF273F00097DCE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B13AA28AF273F00097DCE /* MapViewController.swift */; };
@@ -63,7 +61,9 @@
 		73DCFCDA28990F3900544915 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCD928990F3900544915 /* Log.swift */; };
 		73DCFCDD2899121A00544915 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */; };
 		73DFEBC4293EDE000073AA95 /* MapTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DFEBC3293EDE000073AA95 /* MapTableCellView.swift */; };
+		73DFEBC8293F68B70073AA95 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DFEBC7293F68B70073AA95 /* Entity.swift */; };
 		73F907E728C719D700AE9CA3 /* MapTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */; };
+		C96D78BA1D90B3E9A8149A05 /* Pods_Airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FF3D47058EE83FA279C16E /* Pods_Airbnb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,8 +83,6 @@
 		734A408B2878417400BB2831 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		7362210728C5C64B003052A0 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		7362210C28C5C75B003052A0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		7362210E28C5C76B003052A0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		7362211228C5C7BB003052A0 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 		7362211528C5C7EA003052A0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7362211828C5CFD2003052A0 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		737B13AA28AF273F00097DCE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +125,7 @@
 		73DCFCD928990F3900544915 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		73DCFCDC2899121A00544915 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
 		73DFEBC3293EDE000073AA95 /* MapTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableCellView.swift; sourceTree = "<group>"; };
+		73DFEBC7293F68B70073AA95 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		73F907E628C719D700AE9CA3 /* MapTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewDataSource.swift; sourceTree = "<group>"; };
 		C562D27082F1CD79FE807630 /* Pods-Airbnb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb/Pods-Airbnb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96D78BA1D90B3E9A8149A05 /* Pods_Airbnb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,6 @@
 		731693EE28C3109C00ED847F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				731693F228C3116B00ED847F /* ViewModel */,
 				731693F128C3116600ED847F /* View */,
 			);
 			path = Calendar;
@@ -196,13 +195,6 @@
 				731693EF28C3116200ED847F /* CalendarViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		731693F228C3116B00ED847F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7330525228770543009065CC = {
@@ -290,9 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				7362211428C5C7DA003052A0 /* Error */,
-				7362211028C5C7AB003052A0 /* DTO */,
+				7362211028C5C7AB003052A0 /* Entity */,
 				7362210A28C5C712003052A0 /* Repository */,
-				7362210E28C5C76B003052A0 /* Service.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -313,12 +304,12 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		7362211028C5C7AB003052A0 /* DTO */ = {
+		7362211028C5C7AB003052A0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				7362211228C5C7BB003052A0 /* DTO.swift */,
+				73DFEBC7293F68B70073AA95 /* Entity.swift */,
 			);
-			path = DTO;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		7362211428C5C7DA003052A0 /* Error */ = {
@@ -643,7 +634,6 @@
 				7390CF1328B4AD8500D8F2EF /* Delegate.swift in Sources */,
 				739F0E3E28B602A5003B7662 /* SearchCoordinator.swift in Sources */,
 				73CCF09528AB62BB004B8226 /* SectionType.swift in Sources */,
-				7362211328C5C7BB003052A0 /* DTO.swift in Sources */,
 				7389D07228A4DACD00BC58A4 /* CityCell.swift in Sources */,
 				73CCF0D728AC9175004B8226 /* SearchBarView.swift in Sources */,
 				7362211628C5C7EA003052A0 /* NetworkError.swift in Sources */,
@@ -669,7 +659,6 @@
 				737B13AB28AF273F00097DCE /* MapViewController.swift in Sources */,
 				7390CF0B28B498F500D8F2EF /* DiffableDataSourceManager.swift in Sources */,
 				7390CF0D28B4A49700D8F2EF /* SearchViewModel.swift in Sources */,
-				7362210F28C5C76B003052A0 /* Service.swift in Sources */,
 				7330526128770544009065CC /* SceneDelegate.swift in Sources */,
 				73F907E728C719D700AE9CA3 /* MapTableViewDataSource.swift in Sources */,
 				73CCF09728AB670C004B8226 /* ItemType.swift in Sources */,
@@ -677,6 +666,7 @@
 				7389D06628A4D28500BC58A4 /* SuggestCell.swift in Sources */,
 				7389D07928A4E37E00BC58A4 /* LayoutFactory.swift in Sources */,
 				7362210828C5C64B003052A0 /* UseCase.swift in Sources */,
+				73DFEBC8293F68B70073AA95 /* Entity.swift in Sources */,
 				7389D07B28A4EE8800BC58A4 /* HeaderView.swift in Sources */,
 				7362211928C5CFD2003052A0 /* MapTableViewCell.swift in Sources */,
 				7390CF1128B4A52E00D8F2EF /* CellData.swift in Sources */,

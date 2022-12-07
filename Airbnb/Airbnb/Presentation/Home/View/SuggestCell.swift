@@ -1,10 +1,3 @@
-//
-//  SuggestCell.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/11.
-//
-
 import UIKit
 import SnapKit
 

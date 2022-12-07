@@ -21,4 +21,5 @@ target 'Airbnb' do
   pod 'FSCalendar'
   pod 'GoogleMaps', '7.1.0'
   pod 'GooglePlaces', '7.1.0'
+  pod 'XMLParsing', :git => 'https://github.com/ShawnMoore/XMLParsing.git'
 end

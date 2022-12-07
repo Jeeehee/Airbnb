@@ -8,6 +8,7 @@ PODS:
   - GooglePlaces (7.1.0)
   - SnapKit (5.6.0)
   - SwiftLint (0.47.1)
+  - XMLParsing (0.0.3)
 
 DEPENDENCIES:
   - FSCalendar
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - GooglePlaces (= 7.1.0)
   - SnapKit (~> 5.6.0)
   - SwiftLint
+  - XMLParsing (from `https://github.com/ShawnMoore/XMLParsing.git`)
 
 SPEC REPOS:
   trunk:
@@ -24,13 +26,23 @@ SPEC REPOS:
     - SnapKit
     - SwiftLint
 
+EXTERNAL SOURCES:
+  XMLParsing:
+    :git: https://github.com/ShawnMoore/XMLParsing.git
+
+CHECKOUT OPTIONS:
+  XMLParsing:
+    :commit: 594272e4df40798c53ae1735ee65f3f387291670
+    :git: https://github.com/ShawnMoore/XMLParsing.git
+
 SPEC CHECKSUMS:
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   GoogleMaps: bc56ffb0324e345a2d91bac1a64a920f9c8f1b20
   GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
+  XMLParsing: 085edb6fa22c71d6b53a79299f990a91e7414d19
 
-PODFILE CHECKSUM: cdfbd7478fd5b3419129462f506e3584eab4a169
+PODFILE CHECKSUM: a67cad286fe455e48341676d753b02fc7c3dda43
 
 COCOAPODS: 1.11.3

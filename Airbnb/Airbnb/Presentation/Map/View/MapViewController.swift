@@ -1,10 +1,3 @@
-//
-//  MapViewController.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/19.
-//
-
 import MapKit
 import SnapKit
 import UIKit
@@ -19,6 +12,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
         attribute()
         layout()
     }
@@ -34,6 +28,13 @@ class MapViewController: UIViewController {
         configureLocationManager()
     }
     
+    private func bind() {
+        viewModel.coordinator
+            .bind { (latitude, longitude) in
+                self.setAnnotation("광화문", CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)))
+        }
+    }
+    
     private func layout() {
         view.addSubview(mapView)
         view.addSubview(searchView)
@@ -41,7 +42,7 @@ class MapViewController: UIViewController {
 
         mapView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(mapTableView.snp.top)
+            $0.bottom.equalTo(mapTableView.snp.top).offset(30)
         }
         
         searchView.snp.makeConstraints {
@@ -52,11 +53,8 @@ class MapViewController: UIViewController {
         }
         
         mapTableView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-    
-    private func bind() {
     }
     
     private func configureMapView() {
@@ -65,9 +63,6 @@ class MapViewController: UIViewController {
         mapView.isScrollEnabled = true
         mapView.isRotateEnabled = true
         mapView.isPitchEnabled = true
-        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate,
-                                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        mapView.setRegion(region, animated: true)
     }
     
     private func configureLocationManager() {
@@ -75,10 +70,22 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    private func setAnnotation(_ title: String, _ coordinator: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinator
+        annotation.title = title
+        mapView.addAnnotation(annotation)
+    }
+
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
-    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate,
+                                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
+    }
 }
 
 // MARK: - Delegate

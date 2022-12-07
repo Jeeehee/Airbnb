@@ -1,10 +1,3 @@
-//
-//  SearchViewController.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/08/22.
-//
-
 import MapKit
 import SnapKit
 import UIKit

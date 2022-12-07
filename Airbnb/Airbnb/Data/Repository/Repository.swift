@@ -1,10 +1,3 @@
-//
-//  Repository.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/09/05.
-//
-
 import Foundation
 
 let url = "https://openapi.gg.go.kr/StayingGeneralHotel"
@@ -18,7 +11,7 @@ final class Repository {
     
     func getAddress(completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url) else { return }
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
 
         session.dataTask(with: request) { data, response, error in
             if let error = self.errorCheck(data: data, response: response, error: error) {
@@ -33,7 +26,7 @@ final class Repository {
                     guard let decodeResponse = try? JSONDecoder().decode(Data.self, from: data) else { return }
                     if let result = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as String? { print(result) }
                     completion(.success(decodeResponse))
-                    
+                
                 } catch {
                     completion(.failure(.decodeFailedError))
                 }

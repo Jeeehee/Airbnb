@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/07/07.
-//
-
 import UIKit
 import SnapKit
 
@@ -37,29 +30,40 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let repo = Repository()
-        repo.getAddress { data in
-            print("ddd")
-            switch data {
-                
-            case let .success(address):
-                print(address)
-            case let .failure(error):
-                print(error)
-            }
-        }
+
+//        let repo = Repository()
+//        repo.getAddress { data in
+//            print("ddd")
+//            switch data {
+//
+//            case let .success(address):
+//                print(address)
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
         
         diffableDataSourceManager.configureDataSource(in: collectionView)
         addActionOfButton()
         
+        bind()
         attribute()
         layout()
-        bind()
     }
     
     deinit {
         Log.debug("DeInit \(#fileID)")
+    }
+    
+    private func bind() {
+        viewModel?.output.sectionTitle.bind { [weak self] text in
+            guard !text.isEmpty else { return }
+            self?.diffableDataSourceManager.getSectionTitle(text: text)
+        }
+        
+        viewModel?.output.items.bind { [weak self] item in
+            self?.diffableDataSourceManager.snapShot(item: item)
+        }
     }
     
     private func attribute() {
@@ -103,17 +107,7 @@ class HomeViewController: UIViewController {
             $0.height.equalTo(45)
         }
     }
-    
-    private func bind() {
-        viewModel?.output.sectionTitle.bind { [weak self] text in
-            guard !text.isEmpty else { return }
-            self?.diffableDataSourceManager.getSectionTitle(text: text)
-        }
-        
-        viewModel?.output.items.bind { [weak self] item in
-            self?.diffableDataSourceManager.snapShot(item: item)
-        }
-    }
+
     
     private func addActionOfButton() {
         mapButton.addAction(.init(handler: { _ in

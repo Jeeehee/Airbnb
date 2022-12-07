@@ -1,10 +1,3 @@
-//
-//  MapTableViewDataSource.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/09/06.
-//
-
 import UIKit
 
 final class MapTableViewDataSource: NSObject, UITableViewDataSource {

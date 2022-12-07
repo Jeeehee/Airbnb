@@ -1,16 +1,10 @@
-//
-//  MapViewModel.swift
-//  Airbnb
-//
-//  Created by Jihee hwang on 2022/12/05.
-//
-
 import Foundation
+
 protocol MapViewModelInput {
-    var showSearchView: Observable<Bool> { get }
 }
 
 protocol MapViewModelOutput {
+    var coordinator: Observable<(Double, Double)> { get }
 }
 
 protocol MapViewModelProtocol: MapViewModelInput, MapViewModelOutput {
@@ -22,6 +16,5 @@ struct MapViewModel: MapViewModelProtocol {
     var input: MapViewModelInput { self }
     var output: MapViewModelOutput { self }
     
-    var showSearchView = Observable(false)
-    
+    var coordinator: Observable<(Double, Double)> = Observable((37.51818789942772, 126.88541765534976))
 }
